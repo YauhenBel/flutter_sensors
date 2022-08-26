@@ -70,6 +70,7 @@ class _SensorChannel {
 
   /// Transform the delay duration object to an int value for each platform.
   num? _transformDurationToNumber(Duration? delay) {
-    return Platform.isAndroid ? delay?.inMicroseconds : delay?.inMicroseconds / 1000000;
+    final mcrs = delay?.inMicroseconds;
+    return Platform.isAndroid ? mcrs : mcrs == null ? null : mcrs / 1000000;
   }
 }
